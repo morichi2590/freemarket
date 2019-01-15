@@ -1,40 +1,44 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
 
-set :application, 'freemarket_sample_40a'
-set :repo_url,  'git@github.com:y0913/freemarket_sample_40a.git'
+#ここからコメントアウト
+# lock "~> 3.11.0"
 
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+# set :application, 'freemarket_sample_40a'
+# set :repo_url,  'git@github.com:y0913/freemarket_sample_40a.git'
 
-set :rbenv_type, :user
-set :rbenv_ruby, '2.5.1'
+# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/freemarket_40a.pem']
+# set :rbenv_type, :user
+# set :rbenv_ruby, '2.5.1'
 
-set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
-set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
-set :keep_releases, 5
-set :linked_files, %w{ config/secrets.yml }
+# set :ssh_options, auth_methods: ['publickey'],
+#                   keys: ['~/.ssh/freemarket_40a.pem']
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
+# set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
+# set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
+# set :keep_releases, 5
+# set :linked_files, %w{ config/secrets.yml }
 
-  desc 'upload secrets.yml'
-  task :upload do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
-    end
-  end
-  before :starting, 'deploy:upload'
-  after :finishing, 'deploy:cleanup'
-end
+# after 'deploy:publishing', 'deploy:restart'
+# namespace :deploy do
+#   task :restart do
+#     invoke 'unicorn:restart'
+#   end
+
+#   desc 'upload secrets.yml'
+#   task :upload do
+#     on roles(:app) do |host|
+#       if test "[ ! -d #{shared_path}/config ]"
+#         execute "mkdir -p #{shared_path}/config"
+#       end
+#       upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
+#     end
+#   end
+#   before :starting, 'deploy:upload'
+#   after :finishing, 'deploy:cleanup'
+# end
+#ここまでコメントアウト
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -69,9 +73,12 @@ end
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
-}
+
+
+#コメントアウト
+# set :default_env, {
+#   rbenv_root: "/usr/local/rbenv",
+#   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+#   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+#   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+# }

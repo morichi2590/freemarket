@@ -61,7 +61,7 @@
 #   }
 
 # server "db.example.com", user: "deploy", roles: %w{db}
-server '13.115.88.38', user: 'ec2-user', roles: %w{app db web}
+# server '13.115.88.38', user: 'ec2-user', roles: %w{app db web}
 
 set :rails_env, "production"
 set :unicorn_rack_env, "production"

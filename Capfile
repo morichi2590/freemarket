@@ -1,9 +1,9 @@
 # Load DSL and set up stages
-require "capistrano/setup"
-
+# require "capistrano/setup"
+# ２行目もコメントアウト
 # Include default deployment tasks
-require "capistrano/deploy"
-
+# require "capistrano/deploy"
+# ５行目もコメントアウト
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
@@ -34,12 +34,14 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 
-
-require 'capistrano/rbenv'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
-require 'capistrano3/unicorn'
+#ここからコメントアウト
+# require 'capistrano/rbenv'
+# require 'capistrano/bundler'
+# require 'capistrano/rails/assets'
+# require 'capistrano/rails/migrations'
+# require 'capistrano3/unicorn'
+# ここまで
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+# Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+# ここもコメントアウト４６行目だけ
