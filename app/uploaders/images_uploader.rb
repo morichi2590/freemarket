@@ -10,7 +10,7 @@ include CarrierWave::MiniMagick
   elsif Rails.env.test?
     storage :file
   else
-    storage :file
+    storage :fog
   end
   # storage :fog
 
