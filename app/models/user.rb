@@ -18,6 +18,7 @@ class User < ApplicationRecord
     sns = SnsCredential.where(uid: auth.uid, provider: auth.provider).first
     unless sns
       @user = User.create(
+      nickname:    auth.info.name,
       email:    auth.info.email,
       password: Devise.friendly_token[0,20]
       )
